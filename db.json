@@ -1,6 +1,29 @@
 {
-  "products":[
-    
+  "products": [
+    {
+      "name": "Miguel",
+      "lastname": "Rojas",
+      "product": "pizza-1",
+      "id": 1
+    },
+    {
+      "name": "Miller",
+      "lastname": "Nivia",
+      "product": "steak-0",
+      "id": 2
+    },
+    {
+      "name": "Brayan",
+      "lastname": "martinez",
+      "product": "tacos-2",
+      "id": 3
+    },
+    {
+      "name": "nelson",
+      "lastname": "Garcia",
+      "product": "pizza-1",
+      "id": 4
+    }
   ],
   "comments": [
     {

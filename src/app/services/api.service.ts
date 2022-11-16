@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  constructor() { }
+  constructor(private httpclient : HttpClient) { }
+
+  postProduct(data : any){
+    return this.httpclient.post<any>("http://localhost:3000/products/", data)
+  }
+
+  getProduct(){
+    return this.httpclient.get<any>("http://localhost:3000/products/")
+  }
 }
