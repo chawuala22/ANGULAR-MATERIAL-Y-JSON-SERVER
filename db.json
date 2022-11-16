@@ -19,10 +19,16 @@
       "id": 3
     },
     {
-      "name": "nelson",
-      "lastname": "Garcia",
+      "name": "Freddy",
+      "lastname": "Rojas",
       "product": "pizza-1",
-      "id": 4
+      "id": 6
+    },
+    {
+      "name": "Sandra ",
+      "lastname": "García",
+      "product": "steak-0",
+      "id": 7
     }
   ],
   "comments": [

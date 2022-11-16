@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from '../services/api.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import { DialogComponent } from '../dialog/dialog.component';
+import { ReturnStatement } from '@angular/compiler';
+import Swal from 'sweetalert2';
 
 export interface PeriodicElement {
   name: string;
@@ -25,11 +33,58 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  displayedColumns: string[] = ['id', 'name', 'lastname', 'product', 'action'];
+  dataSource !: MatTableDataSource<any>;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort)
+  sort!: MatSort; 
+
+  constructor(private dialog : MatDialog, private api : ApiService) { }
 
   ngOnInit(): void {
+    this.allproducts();
+  }
+
+  editProduct(row : any){
+    this.dialog.open(DialogComponent, {
+      width:'30%',
+      data:row
+    })
+  }
+  deleteProduct(id: number){
+this.api.deleteProduct(id).subscribe({
+  next:(res)=>{
+    Swal.fire('Eliminado con exito');
+    setTimeout(() => {
+      window.location.reload()
+    }, 2000);
+  },
+  error:()=>{
+    Swal.fire('Eliminado sin exito');
+  }
+})
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  allproducts(){
+    this.api.getProduct().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      error:(e)=>{
+        alert("no hay productos")
+      }
+    })
   }
 
 }
