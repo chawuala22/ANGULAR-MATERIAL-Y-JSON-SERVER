@@ -3,39 +3,9 @@
     {
       "name": "Miguel",
       "lastname": "Rojas",
-      "product": "pizza-1",
+      "product": "Salchipapa",
+      "ndocu": "1235538176",
       "id": 1
-    },
-    {
-      "name": "Miller",
-      "lastname": "Nivia",
-      "product": "steak-0",
-      "id": 2
-    },
-    {
-      "name": "Brayan",
-      "lastname": "martinez",
-      "product": "tacos-2",
-      "id": 3
-    },
-    {
-      "name": "Freddy",
-      "lastname": "Rojas",
-      "product": "pizza-1",
-      "id": 6
-    },
-    {
-      "name": "Sandra ",
-      "lastname": "García",
-      "product": "steak-0",
-      "id": 7
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
     }
   ],
   "profile": {

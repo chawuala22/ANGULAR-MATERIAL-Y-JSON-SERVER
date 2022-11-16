@@ -33,7 +33,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'lastname', 'product', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'lastname', 'product', 'ndocu', 'action'];
   dataSource !: MatTableDataSource<any>;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;

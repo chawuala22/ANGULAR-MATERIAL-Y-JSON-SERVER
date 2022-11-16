@@ -27,6 +27,7 @@ export class DialogComponent implements OnInit {
       name: ['', Validators.required],
       lastname: ['', Validators.required],
       product: ['', Validators.required],
+      ndocu:['',Validators.required]
     });
     console.log(this.editData);
 
@@ -35,12 +36,13 @@ export class DialogComponent implements OnInit {
       this.formADD.controls['name'].setValue(this.editData.name);
       this.formADD.controls['lastname'].setValue(this.editData.lastname);
       this.formADD.controls['product'].setValue(this.editData.product);
+      this.formADD.controls['ndocu'].setValue(this.editData.ndocu)
     }
   }
   foods: Food[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
+    { value: 'Salchipapa', viewValue: 'Salchipapa' },
+    { value: 'Pizza', viewValue: 'Pizza' },
+    { value: 'Tacos', viewValue: 'Tacos' },
   ];
 
   add() {
