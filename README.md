@@ -1,3 +1,3 @@
-XML - JSON - ANGULAR
+API - ANGULAR MATERIAL _ HTTPCLIENT
 
-Se convierte archivo XML a JSON, se consume y se realiza un CRUD
+Se consume api y se muestran la info
