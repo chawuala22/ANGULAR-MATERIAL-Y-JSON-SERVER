@@ -16,7 +16,7 @@ export class ApiService {
   }
 
   getTeam(){
-    return this.httpclient.get<Equipo[]>(`${this.uRL}equipos/listar/0/10000`);
+    return this.httpclient.get<Equipo[]>(`${this.uRL}equipos/listar/0/100`);
   }
   
   updateTeam(data:Equipo, id:number){
