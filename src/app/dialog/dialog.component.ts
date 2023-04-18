@@ -3,10 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
-interface Food {
-  value: string;
-  viewValue: string;
-}
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -24,31 +20,32 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.formADD = this.formBuilder.group({
-      name: ['', Validators.required],
-      lastname: ['', Validators.required],
-      product: ['', Validators.required],
-      ndocu: ['', Validators.required],
+      nombre: ['', Validators.required],
+      estadio: ['', Validators.required],
+      sitioWeb: ['', Validators.required],
+      nacionalidad: ['', Validators.required],
+      fundacion: ['', Validators.required],
+      entrenador: ['', Validators.required],
+      capacidad: ['', Validators.required],
+      valor: ['', Validators.required],
     });
     console.log(this.editData);
 
     if (this.editData) {
       this.actionBtn = 'Actualizar';
-      this.formADD.controls['name'].setValue(this.editData.name);
-      this.formADD.controls['lastname'].setValue(this.editData.lastname);
-      this.formADD.controls['product'].setValue(this.editData.product);
-      this.formADD.controls['ndocu'].setValue(this.editData.ndocu);
+      this.formADD.controls['nombre'].setValue(this.editData.nombre);
+      this.formADD.controls['estadio'].setValue(this.editData.estadio);
+      this.formADD.controls['sitioWeb'].setValue(this.editData.sitioWeb);
+      this.formADD.controls['fundacion'].setValue(this.editData.fundacion);
+      this.formADD.controls['entrenador'].setValue(this.editData.entrenador);
+      this.formADD.controls['capacidad'].setValue(this.editData.capacidad);
+      this.formADD.controls['valor'].setValue(this.editData.valor);
     }
   }
-  foods: Food[] = [
-    { value: 'Salchipapa', viewValue: 'Salchipapa' },
-    { value: 'Pizza', viewValue: 'Pizza' },
-    { value: 'Tacos', viewValue: 'Tacos' },
-  ];
-
   add() {
     if (!this.editData) {
       if (this.formADD.valid) {
-        this.api.postProduct(this.formADD.value).subscribe({
+        this.api.postTeam(this.formADD.value).subscribe({
           next: (res) => {
             Swal.fire('Agregado con exito');
             this.formADD.reset();
@@ -67,7 +64,7 @@ export class DialogComponent implements OnInit {
     }
   }
   actualizar() {
-    this.api.updateProduct(this.formADD.value, this.editData.id).subscribe({
+    this.api.updateTeam(this.formADD.value, this.editData.id).subscribe({
       next: (res) => {
         Swal.fire('Editado con exito');
         this.formADD.reset();

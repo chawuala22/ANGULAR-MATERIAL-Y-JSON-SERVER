@@ -3,29 +3,37 @@
   <form [formGroup]="formADD">
     <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label>
-      <input formControlName="name" matInput placeholder="Ingresa tu nombre aquí" />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <input formControlName="nombre" matInput  />
     </mat-form-field>
   
     <mat-form-field appearance="outline">
-      <mat-label>Apellido</mat-label>
-      <input formControlName="lastname" matInput placeholder="Ingresa tu nombre aquí" />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-label>Estadio</mat-label>
+      <input formControlName="estadio" matInput  />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Numero documento</mat-label>
-      <input formControlName="ndocu" matInput placeholder="Ingresa tu numero de documento aquí" />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-label>Sitio Web</mat-label>
+      <input formControlName="sitioWeb" matInput  />
     </mat-form-field>
-  
     <mat-form-field appearance="outline">
-      <mat-label>Producto</mat-label>
-      <mat-select formControlName="product">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
+      <mat-label>Nacionalidad</mat-label>
+      <input formControlName="nacionalidad" matInput  />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Fundacion</mat-label>
+      <input formControlName="fundacion" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Entrenador</mat-label>
+      <input formControlName="entrenador" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Capacidad</mat-label>
+      <input formControlName="capacidad" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Valor</mat-label>
+      <input formControlName="valor" matInput />
     </mat-form-field>
   </form>
 </div>

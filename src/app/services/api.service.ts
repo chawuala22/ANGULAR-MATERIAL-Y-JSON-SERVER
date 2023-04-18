@@ -1,26 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Equipo } from '../models/equipo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
+  uRL: string = 'https://wo-fifa.azurewebsites.net/'
+
   constructor(private httpclient : HttpClient) { }
 
-  postProduct(data : any){
-    return this.httpclient.post<any>("http://localhost:3000/products/", data);
+  postTeam(data : Equipo){
+    return this.httpclient.post<Equipo>(`${this.uRL}equipos/crear`, data);
   }
 
-  getProduct(){
-    return this.httpclient.get<any>("http://localhost:3000/products/");
+  getTeam(){
+    return this.httpclient.get<Equipo[]>(`${this.uRL}equipos/listar/0/10000`);
   }
   
-  updateProduct(data:any, id:number){
-  return this.httpclient.put<any>("http://localhost:3000/products/"+id, data);
+  updateTeam(data:Equipo, id:number){
+  return this.httpclient.put<Equipo>(`${this.uRL}equipos/actualizar/`+id, data);
   }
 
-  deleteProduct(id:number){
-    return this.httpclient.delete<any>("http://localhost:3000/products/"+id);
+  deleteTeam(id:number){
+    return this.httpclient.delete<Equipo>(`${this.uRL}equipos/eliminar/`+id);
   }
 }
